@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTAFOLIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        /* Paleta elegante: azul oscuro, azul acero, dorado suave, gris claro y blanco */
+        --primary: #1a2238;      /* Azul oscuro */
+        --secondary: #415a77;    /* Azul acero */
+        --accent: #9eaed9de;       /* Dorado suave */
+        --bg: #f5f6fa;           /* Gris muy claro */
+        --white: #fff;
+        --shadow: 0 4px 24px rgba(65, 90, 119, 0.10);
+        --radius: 20px;
+        --gradient: linear-gradient(90deg, #1a2238 0%, #415a77 100%);
+    }
+
+    body {
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        background: var(--bg);
+        color: var(--primary);
+        min-height: 100vh;
+        letter-spacing: 0.01em;
+    }
+
+    /* Barra superior fija */
+    .navbar {
+        background: var(--white);
+        box-shadow: var(--shadow);
+        padding: 0.7rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    .navbar-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+    .navbar-logo {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--primary);
+        letter-spacing: 2px;
+    }
+    .navbar-links {
+        display: flex;
+        gap: 2rem;
+    }
+    .navbar-links a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.4rem 1.2rem;
+        border-radius: 8px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .navbar-links a:hover {
+        background: var(--secondary);
+        color: var(--white);
+    }
+
+    header {
+        background: var(--gradient);
+        color: var(--white);
+        padding: 4rem 0 3rem 0;
+        text-align: center;
+        box-shadow: var(--shadow);
+        border-radius: 0 0 var(--radius) var(--radius);
+        position: relative;
+        overflow: hidden;
+    }
+    header h1 {
+        margin: 0 0 1rem 0;
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+        font-weight: 900;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    header p {
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin: 0 auto;
+        max-width: 600px;
+        opacity: 0.95;
+    }
+    .hero-btn {
+        margin-top: 2rem;
+        background: var(--accent);
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 10px;
+        padding: 1rem 2.5rem;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(65, 90, 119, 0.10);
+    }
+    .hero-btn:hover {
+        background: var(--secondary);
+        color: var(--white);
+    }
+
+    main {
+        max-width: 1100px;
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+    }
+
+    .about-section, .contact-section {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 2.5rem;
+        padding: 2.5rem 2rem;
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .about-img {
+        flex: 0 0 180px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #e0e7ef 60%, #f5f6fa 100%);
+        box-shadow: 0 2px 12px rgba(65, 90, 119, 0.10);
+        background-image: url('foto.jpeg');
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 1rem;
+    }
+    .about-content {
+        flex: 1 1 300px;
+    }
+    .about-content h2 {
+        color: var(--secondary);
+        margin-top: 0;
+        font-size: 2.2rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: 1.2rem;
+    }
+    .about-content p {
+        font-size: 1.15rem;
+        margin-bottom: 0.5rem;
+        color: #444;
+    }
+
+    .proyectos-section {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 2.5rem;
+        padding: 2.5rem 2rem;
+    }
+    .proyectos-section h2 {
+        color: var(--secondary);
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+    }
+    .proyectos-lista {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+    .proyecto {
+        background: linear-gradient(120deg, #e0e7ef 60%, #f5f6fa 100%);
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(65, 90, 119, 0.10);
+        padding: 2rem 1.5rem;
+        transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+        border: 1.5px solid #dbeafe;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 220px;
+    }
+    .proyecto:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 8px 32px rgba(65, 90, 119, 0.18);
+        border-color: var(--secondary);
+    }
+    .proyecto h3 {
+        margin-top: 0;
+        color: var(--secondary);
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+    .proyecto p {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+        color: #444;
+    }
+    .proyecto a {
+        display: inline-block;
+        margin-top: auto;
+        color: var(--white);
+        background: var(--secondary);
+        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 2px 8px rgba(65, 90, 119, 0.08);
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .proyecto a:hover {
+        background: var(--primary);
+        color: var(--accent);
+        box-shadow: 0 4px 16px rgba(26, 34, 56, 0.12);
+    }
+
+    .contact-section form {
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 0;
+    }
+    .contact-section label {
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+    }
+    .contact-section input, .contact-section textarea {
+        padding: 1rem;
+        border: 1.5px solid #dbeafe;
+        border-radius: 10px;
+        font-size: 1.08rem;
+        background: #f9fbfd;
+        resize: vertical;
+        transition: border 0.2s, box-shadow 0.2s;
+        box-shadow: 0 1px 4px rgba(65, 90, 119, 0.04);
+    }
+    .contact-section input:focus, .contact-section textarea:focus {
+        border: 1.5px solid var(--secondary);
+        outline: none;
+        box-shadow: 0 2px 12px rgba(65, 90, 119, 0.10);
+    }
+    .contact-section button[type="submit"] {
+        background: var(--gradient);
+        color: var(--white);
+        border: none;
+        border-radius: 10px;
+        padding: 1rem 0;
+        font-size: 1.18rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(65, 90, 119, 0.10);
+        letter-spacing: 1px;
+    }
+    .contact-section button[type="submit"]:hover {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        color: var(--accent);
+        box-shadow: 0 4px 16px rgba(26, 34, 56, 0.14);
+    }
+
+    footer {
+        text-align: center;
+        padding: 2rem 0;
+        background: linear-gradient(90deg, #e0e7ef 0%, #f5f6fa 100%);
+        color: var(--secondary);
+        margin-top: 2.5rem;
+        border-radius: var(--radius) var(--radius) 0 0;
+        font-size: 1.08rem;
+        letter-spacing: 1px;
+        box-shadow: var(--shadow);
+        font-weight: 600;
+        opacity: 0.97;
+    }
+
+    @media (max-width: 900px) {
+        .about-section, .contact-section {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2rem 1rem;
+        }
+        .navbar-content {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo">MiPortafolio</div>
+            <div class="navbar-links">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>¡Hola! Soy Andriy Villaseñor</h1>
+        <a class="hero-btn" href="#contacto">Solicita tu proyecto</a>
+        <p style="margin-top:2rem;">Tengo 17 años y me especializo en crear páginas web modernas, atractivas y funcionales para todo tipo de clientes. Si buscas una web profesional y creativa, ¡estás en el lugar correcto!</p>
+    </header>
+    <main>
+        <section class="about-section" id="sobre-mi">
+            <div class="about-img"></div>
+            <div class="about-content">
+                <h2>Sobre mí</h2>
+                <p>Soy un joven desarrollador web con pasión por el diseño y la tecnología. Me dedico a crear sitios web rápidos, seguros y visualmente atractivos, adaptados a las necesidades de cada cliente.</p>
+                <p>He trabajado en proyectos personales y para pequeños negocios, siempre buscando la mejor experiencia para el usuario y resultados profesionales.</p>
+            </div>
+        </section>
+        <section class="proyectos-section" id="proyectos">
+            <h2>Mis Proyectos Destacados</h2>
+            <div class="proyectos-lista">
+                <article class="proyecto">
+                    <h3>Con Chilito</h3>
+                    <p>Sitio web de producto con diseño atractivo y fácil navegación.</p>
+                    <a href="https://lllll-11.github.io/conChilito/" target="_blank">Ver proyecto</a>
+                </article>
+                <article class="proyecto">
+                    <h3>Barbería</h3>
+                    <p>Landing page profesional para barbería, con información de servicios y reservas.</p>
+                    <a href="https://lllll-11.github.io/barberia/" target="_blank">Ver proyecto</a>
+                </article>
+                <article class="proyecto">
+                    <h3>Swtptakes</h3>
+                    <p>Plataforma para sorteos online, moderna y responsiva.</p>
+                    <a href="https://lllll-11.github.io/swtptakes/" target="_blank">Ver proyecto</a>
+                </article>
+            </div>
+        </section>
+        <section class="contact-section" id="contacto">
+            <div style="flex:1 1 300px;">
+                <h2>Contacto</h2>
+                <p>¿Listo para llevar tu proyecto al siguiente nivel? Puedes contactarme directamente por WhatsApp y te responderé en menos de 24 horas.</p>
+                <a href="https://wa.me/529711268006" target="_blank" style="display:inline-block;margin:1rem 0 0 0;padding:0.8rem 2rem;background:var(--secondary);color:#fff;border-radius:8px;font-weight:700;text-decoration:none;font-size:1.1rem;transition:background 0.2s;">Contactar por WhatsApp</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Andriy Torres · Desarrollador Web · <a href="mailto:torresvillasenorandriyeduardo@gmail.com" style="color:inherit;text-decoration:underline;">torresvillasenorandriyeduardo@gmail.com</a></p>
+    </footer>
+</body>
+</html>
